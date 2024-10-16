@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+  </style>
+</head>
+
+<body>
+  <div id="area">
+    <img src="./img/EDG.png" alt="" class="EDG">
+    <img src="./img/FPX.png" alt="" class="FPX">
+    <img src="./img/TE.png" alt="" class="TE">
+    <img src="./img/BLG.png" alt="" class="BLG">
+  </div>
+  <div id="bottom">
+    <input type="button" value="开始支持投票" id="botton"
+      style="display: block;margin: auto; margin-top: 30px;height: 30px;">
+  </div>
+  <div id="winner-display" style="text-align:center;margin-top:50px;font-size:24px;color:red;display:none;"></div>
+  <script>
+    $(document).ready(function () {
+      const teams = ['EDG', 'FPX', 'TE', 'BLG'];
+      let votes = {};
+
+      teams.forEach(team => {
+        votes[team] = 0;
+      });
+
+      teams.filter((_, index) => index % 2 === 0).forEach(team => {
+        votes[team]++;
+      });
+
+      votes[teams[teams.length - 3]]++;
+
+      votes['EDG']++;
+
+      function tongji() {
+        let piao = 0;
+        let win = '';
+        for (let team in votes) {
+          if (votes[team] > piao) {
+            piao = votes[team];
+            win = team;
+          }
+        }
+        return win;
+      }
+
+      $('#botton').click(function () {
+        $('#area img').each(function () {
+          let susume = $(this).attr('class');
+          $(this).css('transform', `translateX(${votes[susume] * 100}px)`);
+        });
+
+        let win = tongji();
+        $('#winner-display').text('そして、得票最多的战队是：————————————————————————————' + win).fadeIn(1000);
+      });
+    });
+  </script>
+</body>
+
+</html>
