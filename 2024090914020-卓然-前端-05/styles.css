@@ -1,0 +1,128 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #ffffff;
+  /* background-image: url(d.webp);
+  background-position: center center;
+    
+    background-repeat: no-repeat;
+  
+    background-size: cover; */
+}
+
+.content-container {
+  position: relative;
+}
+
+.content-container::before {
+  content: "";
+  /* 伪元素需要内容，即使它是空的 */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url('d.webp');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  /* 或 contain，根据你的需求选择 */
+  opacity: 0.5;
+  /* 设置透明度 */
+  z-index: -1;
+}
+
+/* 确保伪元素在内容之下 */
+
+header {
+  background: rgba(51, 51, 51, 0.6);
+  color: #fff;
+  padding-top: 30px;
+  min-height: 70px;
+  border-bottom: #e8491d 3px solid;
+}
+
+header h1 {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 24px;
+}
+
+nav ul {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+article {
+  background: #fff;
+  margin: 0 -20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+article h2 {
+  color: #333;
+  text-align: center;
+}
+
+article p {
+  color: #666;
+}
+
+footer {
+  background: rgba(51, 51, 51, 0.6);
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+code {
+  background: #f4f4f4;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+pre {
+  background: #f4f4f4;
+  padding: 10px;
+  overflow-x: auto;
+  border-radius: 4px;
+}
+
+section ul li {
+  list-style-type: none;
+}
